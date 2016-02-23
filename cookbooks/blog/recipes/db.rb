@@ -1,5 +1,6 @@
-#
-# Cookbook Name:: blog
-# Recipe:: db
-#
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+package 'mysql-server-5.6'
+
+service 'mysql' do
+  provider Chef::Provider::Service::Init::Debian
+  action [ :enable, :start ]
+end
