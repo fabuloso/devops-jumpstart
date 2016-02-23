@@ -12,7 +12,6 @@ describe 'blog::default' do
 
   describe file('/etc/nginx/sites-available/blog.com') do
     it { should exist }
-
   end
 
   describe port('80') do
