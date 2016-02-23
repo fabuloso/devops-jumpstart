@@ -10,4 +10,12 @@ describe 'blog::default' do
     it { should be_enabled }
   end
 
+  describe file('/etc/nginx/sites-available/blog.com') do
+    it { should exist }
+
+  end
+
+  describe file('/etc/nginx/sites-enabled/blog.com') do
+    it { should be_symlink }
+  end
 end
