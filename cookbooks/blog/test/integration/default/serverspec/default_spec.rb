@@ -15,6 +15,10 @@ describe 'blog::default' do
 
   end
 
+  describe port('80') do
+    it { should be_listening }
+  end
+
   describe file('/etc/nginx/sites-enabled/blog.com') do
     it { should be_symlink }
   end
