@@ -11,20 +11,20 @@ mysql2_chef_gem 'default' do
 end
 
 connection_Info = {
-  :host     => 'localhost',
+  :host     => '127.0.0.1',
   :username => 'root',
   :password => ''
 }
 
-mysql_database 'blog' do
+mysql_database node['blog']['database']['name'] do
   connection connection_Info
   action :create
 end
 
-mysql_database_user 'blog' do
+mysql_database_user node['blog']['database']['name'] do
   connection connection_Info
-  database_name 'blog'
-  password 'blog'
+  database_name node['blog']['database']['name']
+  password node['blog']['database']['password']
   privileges [:all]
   action [ :create, :grant ]
 end
