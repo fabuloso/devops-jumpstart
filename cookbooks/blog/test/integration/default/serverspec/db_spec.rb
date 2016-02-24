@@ -11,6 +11,10 @@ describe 'blog::db' do
     it { should be_running }
   end
 
+  describe package('mysql-client-5.6') do
+    it { should be_installed }
+  end
+
   describe port('3306') do
     it { should be_listening }
   end
